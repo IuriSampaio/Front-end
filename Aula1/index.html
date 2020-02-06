@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Java Scripit 0</title>
+</head>
+<style>
+    div{
+        display: flex;
+        flex-direction: column;
+        background-color: rebeccapurple;
+    }
+    .na{
+        height: 30px;
+    }
+    .aprovado{
+        color: springgreen;
+        margin: 5px;
+        border-radius: 20px;
+    }
+    .reprovado{
+        color: red;
+        margin: 5px;
+        border-radius: 20px;
+    }
+</style>
+<body bgcolor="rebeccapurple">
+    <h1>Notas e Média</h1>
+    <div>
+
+        NOME:<input type="text" id="nome" value="iuri" class="na">
+        <br><br>
+      NOTA1:<input type="text" class="na" id="nota1">
+        <br><br>
+      NOTA2:<input type="text" id="nota2" class="na">
+      <br><br>
+      <input type="button" value="Calcular" class="na" id="calcular">
+      <br><br>
+      Média:<input type="text" id="media" class="na" disabled>
+      <br><br>
+      Situação:<input type="text" id="situacao" disabled class="na"> 
+
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
