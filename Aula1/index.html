@@ -10,11 +10,27 @@
 <style>
     div{
         display: flex;
+        width: 600px;
         flex-direction: column;
-        background-color: rebeccapurple;
+        background-color:gray;
+        text-align: center;
+        border-radius: 30px;
     }
     .na{
         height: 30px;
+        border-radius: 50px;
+        text-align: center;
+    }
+    .nab{
+        background-color: lawngreen;
+        font-family: monospace;
+        font-size: 20px;
+        border-radius: 50px;
+    }
+    .txt{
+        font-family: monospace;
+        font-size: 30px;
+        
     }
     .aprovado{
         color: springgreen;
@@ -28,21 +44,25 @@
     }
 </style>
 <body bgcolor="rebeccapurple">
-    <h1>Notas e Média</h1>
+    
     <div>
-
-        NOME:<input type="text" id="nome" value="iuri" class="na">
+        
+        <h1 class="txt">Notas e Média</h1>
+        <br>
+      <span class="txt">NOME:</span><input type="text" id="nome" value="iuri" class="na">
         <br><br>
-      NOTA1:<input type="text" class="na" id="nota1">
+      <span class="txt">NOTA 1:</span><input type="text" class="na" id="nota1">
         <br><br>
-      NOTA2:<input type="text" id="nota2" class="na">
+        <span class="txt">NOTA 2:</span><input type="text" id="nota2" class="na">
       <br><br>
-      <input type="button" value="Calcular" class="na" id="calcular">
+      <input type="button" value="Calcular" class="nab" id="calcular">
       <br><br>
-      Média:<input type="text" id="media" class="na" disabled>
+      <span class="txt">MEDIA:</span><input type="text" id="media" class="na" disabled>
       <br><br>
-      Situação:<input type="text" id="situacao" disabled class="na"> 
-
+      <span class="txt">SITUACAO:</span><input type="text" id="situacao" disabled class="na"> 
+      <br><br>
+      <span class="txt">CONCEITO:</span><input type="text" id="conceito" disabled class="na"> 
+      <br><br> 
     </div>
 
     <script src="main.js"></script>

@@ -78,14 +78,18 @@
         const $calcular = document.getElementById('calcular');
     
     //const $nome =document.querySelector("input[type=text]")  --> pode usar qualquer forma de indicar elemento
-    function calcularMedia(){
+    //funtion calculaMedia(){}   ou   const calculaMedia() = () =>{}
+        const calcularMedia = () =>{
         const $nome = document.getElementById('nome');  // so pelo id
         const $nota1 = document.getElementById('nota1')
         const $nota2 = document.getElementById('nota2');
         const $media = document.getElementById('media');
         const $situacao = document.getElementById('situacao');
-            const media = (parseInt($nota1.value) + parseInt($nota2.value)) / 2;
-                if(media>=5){
+        const $conceito = document.getElementById('conceito');
+        //cauculo da media   
+        const media = (parseInt($nota1.value) + parseInt($nota2.value)) / 2;
+            //verificação da situação da media 
+            if(media>=5){
                     $situacao.value = "APROVADO"
                     $situacao.classList.remove('REPROVADO')
                     $situacao.classList.add('APROVADO')
@@ -98,6 +102,92 @@
                     $situacao.style.color='red'
                     $situacao.style.backgroundColor='black'
                 }
-        $media.value = media;
+            //PARA MOSTRAR A MEDIA CAUCULADA NA CAIXA  
+         $media.value = media;
+            //ESTRUTURA DE DESISÃO PARA VER O CONCEITO DA SUA NOTA 
+                if(media<3){
+                    $conceito.value="E"
+                    $conceito.classList.add('E')
+                    $conceito.classList.remove('D','C','B','A')
+                    $conceito.style.color='red'
+                    $conceito.style.backgroundColor='darkblue'
+                }else if(media>2.9 && media<5){
+                    $conceito.value="D"
+                    $conceito.classList.add('D')
+                    $conceito.classList.remove('E','C','B','A')
+                    $conceito.style.color='pink'
+                    $conceito.style.backgroundColor='darkblue'
+                }else if(media>4.5 && media<8){
+                    $conceito.value="C"
+                    $conceito.classList.add('C')
+                    $conceito.classList.remove('E','D','B','A')
+                    $conceito.style.color='pink'
+                    $conceito.style.backgroundColor='blue'
+                }else if(media>7.9 && media<10){
+                    $conceito.value="B"
+                    $conceito.classList.add('B')
+                    $conceito.classList.remove('E','C','D','A')
+                    $conceito.style.color='green'
+                    $conceito.style.backgroundColor='yellow'
+                }else if(media==10){
+                    $conceito.value="A"
+                    $conceito.classList.add('A')
+                    $conceito.classList.remove('E','C','D','B')
+                    $conceito.style.color='green'
+                    $conceito.style.backgroundColor='white'
+                }
+
     }
+        //função que calcula a media a clicacr no botao
         $calcular.addEventListener('click',calcularMedia);
+/* ***** FUNÇÃO NUORMAL
+    function calcula(){
+        calcularMedia()
+    }
+ // ***** FUNÇÕES ANONIMAS 
+    const calcular=function(){
+        calcularMedia()
+    }
+// ***** FUNÇÃO SIMPLES
+    const caucular2= ()=>{
+        calcularMedia()
+    }
+    // *** EXEMPLO DA DIFERENÇA DAS FUNÇÕES
+    function soma(a, b){
+        return a+b
+    }
+
+    const soma2 = (a,b) =>  a+b
+-------------------------------------------------------------------------------------------------------------------------
+  ************************************OUTRO TIPO DE SE ESCREVER O CÓDIGO*****************************************
+
+    const caucularMedia =(n1, n2) => (parseInt(n1) + parseInt(n2))/2
+    $situacao.value = VerificarSituacao(media)
+    $media.value = media;
+    const verificaSituacao = () =>{
+        const $nome = document.getElementById('nome');  // so pelo id
+        const nota1 = document.getElementById('nota1')
+        const nota2 = document.getElementById('nota2');
+        const $media = document.getElementById('media');
+        const $situacao = document.getElementById('situacao');
+        const $conceito = document.getElementById('conceito');
+
+        const media = calcularMedia(nota1, nota2)
+
+         if(media>=5){
+                    $situacao.value = "APROVADO"
+                    $situacao.classList.remove('REPROVADO')
+                    $situacao.classList.add('APROVADO')
+                    $situacao.style.color='green'
+                    $situacao.style.backgroundColor='white'
+                }else{
+                    $situacao.value ="REPROVADO"
+                    $situacao.classList.add('REPROVADO')
+                    $situacao.classList.remove('APROVADO')
+                    $situacao.style.color='red'
+                    $situacao.style.backgroundColor='black'
+                }
+    }
+
+
+*/
