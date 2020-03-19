@@ -1,0 +1,91 @@
+.container{
+    width: 700px;
+    min-height: 500px;
+    height: auto;
+    margin-right: auto;
+    background-color: cadetblue;
+    margin-left: auto;
+    padding-left: 30px;
+    box-sizing: border-box;
+    border: solid 5px grey;
+    border-radius: 30px;
+    margin-top: 100px;
+}
+
+.txt{
+    font-family: monospace;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+select{
+    width: 480px;
+    margin-left: 100px;
+    height: 40px;
+    font-size: 36px;
+    font-family: monospace;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: grey;
+    color: cadetblue;
+    outline: none;
+    cursor: pointer;
+}
+
+#todosResultados{
+    width: 600px;
+    min-height: 230px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 2px grey;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    background-color: grey;
+}
+
+#todosResultados .txt{
+    width: 100%;
+    min-height: 30px;
+    height: auto;
+    padding-top: 3px;
+    text-align: center;
+    box-sizing: border-box;
+    
+    
+}
+
+#resultado{
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 30px;
+    
+}
+
+.cidade{
+    width: 100%;
+    height: 25px;
+    box-sizing: border-box;
+    padding-top: 4px;
+    font-size: 20px;
+    font-family: monospace;
+    text-align: center;
+    cursor: no-drop;
+    margin-bottom: 1px;
+}
+
+.cidade:hover{
+    transition: 0.3s;
+    background-color:cadetblue;
+    color:black;
+    font-weight: bold;
+    
+}

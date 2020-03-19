@@ -1,0 +1,33 @@
+.conteinerGG{
+    display: flex;
+    flex-wrap:wrap ;
+}
+.card{
+    border: 1px solid slategray;
+    margin: 20px;
+}
+.title{
+    background-color: cadetblue;
+    font-family: monospace;
+    color: aliceblue;
+    padding: 5px;;
+    text-align: center;
+}
+ul{
+    list-style-type: none;
+    font-size: 15px;
+    font-family: monospace;
+    margin: 0px;
+    padding: 0px;
+}
+li{
+    margin: 6px;
+}
+.corpo li:nth-child(add){
+    background-color: aliceblue;
+    color: slategray;
+}
+.corpo li:nth-child(even){
+    background-color: aliceblue;
+    color: cadetblue;
+}
