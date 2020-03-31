@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+}
+.titulo{
+    font-size: xx-large;
+    font-weight: bold;
+}
+div:hover , footer:hover{
+    padding: 10px;
+    transition: 1000ms;
+    background-color: blue;
+    font-size: 30px;
+    margin-left: 10px;
+    border-radius: 10px;
+    color: seashell;
+}
+input{
+    padding-top: 10px;
+    min-width: 200px;
+    width: auto;
+    height: 20px;
+    font-size: large;
+}
+body{
+    display: grid;
+    grid-template-rows: 15vh 70vh 15vh;
+    justify-content: center;
+    align-items: center;
+}
+header>div{
+    text-align: center;
+    font-weight:bold;
+}
+
+ main>form {
+    width: 30vw;
+    display: grid;
+    gap: 2vw;
+}
+main>form>div {
+    display: flex;
+    justify-content: space-between;
+} 
+
+footer>span {
+    display: flex;
+    font-size: x-small;
+    justify-content: center;
+}

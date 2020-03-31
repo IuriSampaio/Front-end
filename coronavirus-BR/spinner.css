@@ -1,0 +1,24 @@
+.spinner{
+    width: 30px;
+    margin-top: 3px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    border-radius: 50%;
+}
+.green{
+    border: 5px solid rgba(0, 255, 128, 0.623);
+    border-top-color:greenyellow;
+}
+.amarelo{
+    border: 5px solid rgba(255, 230, 0, 0.678);
+    border-left-color:gold;
+}
+.azul{
+    border: 5px solid rgba(53, 118, 238, 0.568);
+    border-bottom-color:darkblue;    
+}
+@keyframes spin{
+    to{
+        transform: rotate(360deg);
+    }
+}
