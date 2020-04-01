@@ -1,0 +1,97 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: monospace;
+}
+body{
+    display: grid;
+    grid-template-rows: 10vh 85vh 5vh;
+}
+path:hover{
+    stroke: chartreuse;
+    stroke-width: 1px;
+    fill: blue;
+    cursor: pointer;
+}
+path{
+    stroke-width: 1px;
+    stroke: cornsilk;
+}
+main{
+    align-items: center;
+    grid-template-columns: 60vw 40vw;
+    display: grid;
+    justify-content: center;
+}
+svg{
+    width: 60vw;
+  
+}
+header{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font: bold 7vh monospace;
+}
+footer{
+    text-align: center;
+}
+.oceanxx{
+    opacity: 1; 
+    color: #000000; 
+    fill:#ffffff; 
+    stroke:#000; 
+    stroke-width:0.5; 
+    stroke-miterlimit:1;
+}
+.oceanxx:hover{
+    opacity: 1; 
+    color: #000000; 
+    fill:#ffffff; 
+    stroke:#000; 
+    stroke-width:0.5; 
+    cursor: not-allowed;
+    stroke-miterlimit:1;
+}
+/* painelzin  */
+#info{
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.estado{
+    background-color: black;
+    color: white;
+    margin-top: 5vh;
+    border-radius: 50px;
+    font-size: 8vh;
+    margin-bottom: 5vh;
+}
+.card{
+    height: 15vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: 22vw;
+    text-align: center;
+    color:black;
+    margin-bottom: 3vh;
+}
+.suspeitos{
+    background-color: steelblue;
+}
+.confirmados{
+    background-color: slategray;
+}
+.mortes{
+    background-color: rgba(255, 0, 0, 0.575);
+}
+.numeros{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: bolder 8vh monospace;
+}
+.titulo{
+    font: bolder 4vh/5vh monospace;
+}

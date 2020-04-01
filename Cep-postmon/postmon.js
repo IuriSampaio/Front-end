@@ -18,7 +18,9 @@ const encontraCep= async (cep)=>{
         const url = `https://api.postmon.com.br/v1/cep/${cep}`;
         const endereco = await fetch(url).then(res => res.json());
         preencheForm(endereco)
-    // antigo =   fetch(url).then(res=> res.json()).then(data=> preencheForm(data)).catch(err=>err.message);
+    // antigo =   fetch(url).then(res=> res.json())
+                          //.then(data=> preencheForm(data))
+                          //.catch(err=>err.message);
     }
     
 }
