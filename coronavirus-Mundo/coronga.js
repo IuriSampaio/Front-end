@@ -1,7 +1,7 @@
 "use strict";
 let DB = [
     {
-        "uf":"MUNDO",
+        "pais":"MUNDO",
         "suspeitos":"<div class='spinner amarelo'></div>",
         "confirmados":"<div class='spinner azul'></div>",
         "mortes":"<div class='spinner green'></div>"
@@ -11,8 +11,8 @@ let DB = [
 //um array que mostra o numero de suspeitos, confirmados e mortos pelo coronga virus
 const showData =(data)=>{
     const panel=`
-        <div class='estado'>
-            ${data.uf}
+        <div class='pais'>
+            ${data.pais}
         </div>
         <div class='card suspeitos'>
             <div class='numeros'>${data.suspeitos}</div>
@@ -35,80 +35,59 @@ const showData =(data)=>{
      $info.removeChild($info.firstChild);
     $info.appendChild($container);
 };
-const coronaMundo= async () =>{
-   const url = "https://covid-193.p.rapidapi.com/statistics"
+const coronaPais= async () =>{
+   const url = "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php"
    const headers={
     "method": "GET",
-    "headers": {
-        "x-rapidapi-host": "covid-193.p.rapidapi.com",
-        "x-rapidapi-key": "b2d988535fmsh84ab7d643e12cc4p18b5a6jsn028dcb758163"
-   }};
-   fetch(url,headers).then(response => {console.log(response.json()); })
-                     .then(data => {console.log(data.response);});
+	"headers": {
+		"x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
+		"x-rapidapi-key": "b2d988535fmsh84ab7d643e12cc4p18b5a6jsn028dcb758163"
+	}};
+   const api=await fetch(url,headers).then(res => res.json());
+   const apiPronta = await api.countries_stat
+   console.log(apiPronta)
+                    // .then(data => {console.log(data.response);});
 }
-const pegaCorongaPais= () =>{
-    fetch("https://covid-19-data.p.rapidapi.com/country/it", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-            "x-rapidapi-key": "b2d988535fmsh84ab7d643e12cc4p18b5a6jsn028dcb758163"
-        }
-    })
-    .then(response => {
-        console.log(response);
-    })
-    .catch(err => {
-        console.log(err);
-    });
+
+ const achaPais = (e) =>{
+     const paisMapa = e.target.parentNode.id.then;
+    const nomePais = apiPronta.object.country_name;
+    const pegaPais = nomePais.find (country=> country.match (paisMapa));
+    const pais = {
+        "pais":pegaPais.country_name,
+        "suspeitos":pegaPais.active_cases,
+        "confirmados":pegaPais.cases,
+        "mortes": pegaPais.deaths
+    }
+    showData(pais);
+ }
+
+
+
+const coronaMundo=async () =>{
+
+   const url2="https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php"
+
+   const headers2={
+    "method": "GET",
+	"headers": {
+		"x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
+		"x-rapidapi-key": "b2d988535fmsh84ab7d643e12cc4p18b5a6jsn028dcb758163"
+	}
+   }
+
+   const api2Pronta= await fetch(url2, headers2).then(res=>res.json())
+
+   const mundo = {
+    "pais":"MUNDO",
+    "suspeitos":api2Pronta.total_cases,
+    "confirmados":api2Pronta.total_recovered,
+    "mortes":api2Pronta.total_deaths
+   }
+   showData(mundo)
 };
- showData(DB[0]);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-const pegaCorongaBrasil = async () =>{
-    const url = 'https://covid19-brazil-api.now.sh/api/report/v1/brazil';
-    const pegaApi = await fetch(url);
-    const json = await pegaApi.json();
-    const brasil = await {
-        "uf":"brasil",
-        "suspeitos":json.data.cases,
-        "confirmados":json.data.confirmed,
-        "mortes":json.data.deaths
-    }
-    showData(brasil);
-}
-
-const pegaCorongaEstado= async () =>{
-    const url = 'https://covid19-brazil-api.now.sh/api/report/v1/';
-    const pegaApi = await fetch(url);
-    const json = await pegaApi.json();
-    DB = await json.data;
-}
-const achaEstado = (e) =>{
-    const ufmapa = e.target.parentNode.id;
-    const pegaEstado = DB.find (state=> state.uf.match (ufmapa));
-    const state = {
-        "uf":pegaEstado.uf,
-        "suspeitos":pegaEstado.suspects,
-        "confirmados":pegaEstado.cases,
-        "mortes": pegaEstado.deaths
-    }
-    showData(state);
-}
-document.querySelector('svg').addEventListener('click',achaEstado);
-
-
-pegaCorongaEstado();
-pegaCorongaBrasil();
+showData(DB[0]);
+coronaPais()
+coronaMundo();
+document.querySelector('svg').addEventListener('click',achaPais);

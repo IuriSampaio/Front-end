@@ -53,6 +53,9 @@ footer{
     cursor: not-allowed;
     stroke-miterlimit:1;
 }
+circle{
+    display: none;
+}
 /* painelzin  */
 #info{
     height: 80vh;
@@ -60,7 +63,7 @@ footer{
     justify-content: center;
     text-align: center;
 }
-.estado{
+.pais{
     background-color: black;
     color: white;
     margin-top: 5vh;
