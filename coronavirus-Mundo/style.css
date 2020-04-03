@@ -15,6 +15,7 @@ path:hover{
 }
 path{
     stroke-width: 1px;
+    fill: black;
     stroke: cornsilk;
 }
 main{

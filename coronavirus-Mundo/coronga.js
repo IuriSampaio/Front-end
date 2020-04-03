@@ -7,8 +7,8 @@ let DB = [
         "mortes":"<div class='spinner green'></div>"
     }
 ];
-// função que cria ps elementos html dentro da div#info e recebe como argumenro 
-//um array que mostra o numero de suspeitos, confirmados e mortos pelo coronga virus
+// // função que cria ps elementos html dentro da div#info e recebe como argumenro 
+// //um array que mostra o numero de suspeitos, confirmados e mortos pelo coronga virus
 const showData =(data)=>{
     const panel=`
         <div class='pais'>
@@ -35,34 +35,42 @@ const showData =(data)=>{
      $info.removeChild($info.firstChild);
     $info.appendChild($container);
 };
-const coronaPais= async () =>{
-   const url = "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php"
-   const headers={
-    "method": "GET",
-	"headers": {
-		"x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-		"x-rapidapi-key": "b2d988535fmsh84ab7d643e12cc4p18b5a6jsn028dcb758163"
-	}};
-   const api=await fetch(url,headers).then(res => res.json());
-   const apiPronta = await api.countries_stat
-   console.log(apiPronta)
-                    // .then(data => {console.log(data.response);});
+showData(DB[0]);
+//funçao que usa uma Api para pegar os casos de covid-19 em cada pais 
+
+const apiCasosMundo = async () => {
+    
+    const url = "https://covid-193.p.rapidapi.com/statistics";
+    
+    const headers = {
+        "method": "GET",
+	    "headers": {
+		"x-rapidapi-host": "covid-193.p.rapidapi.com",
+        "x-rapidapi-key": "90975f57famsh4adc585dc55770dp13edfcjsn9d8e74b8a84e",
+        }
+    }
+
+    const pegaApi = await fetch(url, headers);
+    const json = await pegaApi.json();
+    DB = await json.response;
 }
 
- const achaPais = (e) =>{
-     const paisMapa = e.target.parentNode.id.then;
-    const nomePais = apiPronta.object.country_name;
-    const pegaPais = nomePais.find (country=> country.match (paisMapa));
+//função que acha o pais clicado e acha seu pais equivalente no array
+
+const achaPais = (e) => {
+    
+    const paisClicado = e.target.className.baseVal;
+    const paisNoArray = DB.find(state => state.country.match(paisClicado))
     const pais = {
-        "pais":pegaPais.country_name,
-        "suspeitos":pegaPais.active_cases,
-        "confirmados":pegaPais.cases,
-        "mortes": pegaPais.deaths
+        "pais": paisNoArray.country,
+        "suspeitos": paisNoArray.cases.active,
+        "confirmados": paisNoArray.cases.critical,
+        "mortes": paisNoArray.deaths.total,
     }
     showData(pais);
- }
+}
 
-
+//funçao que usa uma Api para pegar e mostra o numero de casos de covid-19 no mundo 
 
 const coronaMundo=async () =>{
 
@@ -87,7 +95,6 @@ const coronaMundo=async () =>{
    showData(mundo)
 };
 
-showData(DB[0]);
-coronaPais()
-coronaMundo();
-document.querySelector('svg').addEventListener('click',achaPais);
+coronaMundo()
+document.querySelector('svg').addEventListener('click', achaPais);
+apiCasosMundo();
