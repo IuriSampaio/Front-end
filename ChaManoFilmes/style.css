@@ -1,0 +1,232 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace ;
+}
+body{
+    background-color: rgb(0, 0, 20);
+}
+:root{
+    --detalhe:darkslateblue;
+    --texto1:rgba(300,200,300, 0.621);
+}
+::-webkit-scrollbar-track {
+    background-color: var(--detalhe);
+}
+::-webkit-scrollbar {
+    width: 10px;
+    background: rgb(0, 0, 0);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--texto1) ;
+}
+h1,footer{
+    text-align: center;
+}
+h1{
+    font-size: 65px;
+    color: var(--texto1);
+}
+header{
+    height: 10vh;
+}
+.seleciona{
+    width: 160px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 25px;
+    display: grid;
+    float: right;
+    margin-top: -27px;
+    margin-right:10px;
+    border-radius: 30px;
+    background-color: var(--detalhe);
+    color: var(--texto1);
+}
+.seleciona:hover{
+    color: var(--detalhe);
+    background-color:var(--texto1);
+}
+#palavraChave{
+    min-width:500px ;
+    width: auto;
+    border-radius: 30px;
+    border: 1px solid var(--detalhe);
+    background-color: var(--texto1);
+    color: var(--detalhe);
+    text-align: center;
+    transition-property: opacity;
+    transition-duration: 2s;
+    height: 40px;
+}
+    
+#palavraChave:hover{
+    background-color: var(--detalhe);
+    color: var(--texto1);
+    border: 1px solid var(--texto1);
+    transition: 1000ms;
+}
+.pesquisa{
+    margin-top: 20px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+/* #btnPesquisa{
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    background-repeat: no-repeat;
+    background-color: var(--texto1);
+    background-image: url(./images/lupa.png);
+    background-size: contain;
+    border: solid 2px var(--detalhe);
+}
+#btnPesquisa:hover{
+    background-color: var(--detalhe);
+    cursor: pointer;
+} */
+
+#movies{
+    margin-top: 50px;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    min-height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    /* background-color: rgba(300,200,300, 0.621); */
+}
+.conteinerGG{ 
+    height: 97vh; 
+}
+/* .teste{
+    width: 200px;
+    height: 300px;
+    background-color: chartreuse;
+       
+} */
+.esconde{
+    display: none;
+}
+.filme{
+    float: left;
+    margin: 46px;
+    height: auto;
+    margin-left: 90px;
+} 
+.filme:hover .sobre{
+    opacity: 1;
+    transition: 1000ms;
+    position: absolute;
+}
+.sobre{
+    background-color: #000000ce;
+    color: #ffffff;
+    position: absolute;
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+   
+}
+.descrisao{
+    width: 300px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+.nome{
+    width: 300px;
+    color: var(--detalhe);
+    text-align: center;
+}
+.conteinerzinho>.esconde{
+    display: none;
+}
+img{
+    border-radius: 20px;
+}
+button{
+    width: 50%;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid rgb(0, 0, 20);
+    background-color: var(--detalhe);
+    color: var(--texto1);
+    margin: 20px;
+    margin-left: 25%;
+}
+button:hover{
+    cursor: pointer;
+    border: deeppink solid 2px;
+}
+footer>span{
+    color: var(--texto1);
+    justify-content: end;
+    box-sizing: border-box;
+}
+  
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+  }
+  
+  .modal.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+  }
+  
+  .modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #000000ce;
+  }
+  
+  .modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .modal-body {
+    padding: 10px 15px;
+    color: rgb(0, 0, 20);
+  }
+  
+  #overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+  }
+  
+  #overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
