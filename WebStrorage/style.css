@@ -1,0 +1,21 @@
+body{
+    background-color: rgba(0,0,0,0.856);
+}
+h1{
+    color: white;
+}
+.esconde{
+    display: none;
+}
+#input{
+    max-width:60% ;
+}
+#atualizar{
+    max-width: 12%;
+}
+#excluir{
+    max-width: 12%;
+}
+#limpar{
+    max-width: 12%;
+}
