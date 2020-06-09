@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>ViaCep</title>
+</head>
+<body>
+    <header>
+        <div class="titulo"> Endereços - SENAI Jandira</div>
+    </header>
+    <main>
+        <form >
+            <div>
+                Nome: <input type="text" id='nome'>
+            </div>
+            <div>
+                CEP: <input type="text" id='cep' onchange="encontraCep(this.value)">
+            </div>
+            <div>
+                endereço: <input type="text" id='endereco'>
+            </div>
+            <div>
+                bairro: <input type="text" id='bairro'>
+            </div>
+            <div>
+                cidade: <input type="text" id='cidade'>
+            </div>
+            <div>
+                estado: <input type="text" id='estado'>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <span>
+            Copyright 2020 SENAI 4.20 | Todos os Direitos Reservados | Desenvolvido por  <a href="iurisampaio18@gmail.com"> Iuri </a> 
+        </span>
+    </footer>  
+    <script src="./viacep.js"></script>
+</body>
+</html>
