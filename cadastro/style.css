@@ -1,0 +1,122 @@
+body{
+	background-color: rgba(30,0,60,0.8);
+}
+.cadastro-form{
+	background-color: rgba(350,350,350,0.4);
+	width: 80vw;
+	margin:10vh auto; 
+	border-radius: 5px;
+	box-shadow:  0px 0px 40px black; 
+}
+.titulo{
+	background-color: rgb(190,0,300);
+	height: 45px;
+	text-align: center;
+	font: bold calc(12px + 1vw)/ 45px monospace;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;  
+	box-shadow: 1px 0px 5px black;
+	color:white;
+}
+
+.subtitulo{
+	display: flex;
+	justify-content: space-between;
+	padding: 2vw;
+}
+.subtitulo > div{
+	color: rgb(0,0,0);
+	font: bold  calc(12px + 1vw)/ 45px monospace;
+	text-shadow: 1px 1px 1px black;
+}
+.botao{
+	font:bold calc(2px + 1vw) monospace;
+	background-color: transparent;
+	border: 2px solid rgb(190,0,300);
+	box-shadow: 0px 0px 3px black;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.botao:hover{
+	color: purple;
+	background-color: rgba(350,350,350,0.4);
+}
+.conteiner-modal{
+	width: 100vw;
+	height: 100vh;
+	background-color: #00000077;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: -10;
+	opacity: 0;
+}
+.modal{
+	width: 50vw;
+	margin: 10vh auto;
+	background-color: white;
+	padding: 10px;
+	border-radius: 10px;
+	height: 80vh;
+}
+.conteiner-modal.exibirModal{
+	opacity: 1;
+	z-index:999; 
+}
+/*input{
+	border: transparent;
+	border-bottom: solid 1px ; 
+	width: 47%;
+	margin: 3% 0.5% 0.5%;
+}*/
+div.input{
+		margin-bottom: 24px;
+		margin: 2% 2%; 
+		width: 45%;
+		float: left;
+		position: relative;
+	}
+	input{
+		-moz-appearance:none;
+		-webkit-appearance:none;
+		appearance:none;
+		width: 100%;
+		padding: 10px 0;
+		border: none;
+		border-bottom: 1.5px solid rgb(190,0,300) ;
+		background-color:transparent;
+		outline: none;
+		color:rgb(200,0,100);
+		font-size: 1em;
+	}
+	input ~ label{
+		position: absolute;
+		top: 16px;
+		left: 0;
+		color: rgb(0,0,0);
+		transition: .4s;
+	}
+	input:focus ~ label, input:valid ~ label{
+		transform: translateY(-24px);
+		font-size: 0.8em;
+		letter-spacing: 0.1em;
+	}
+	.input span.erro{
+		display: flex;
+		padding: 0;
+		background-color: rgba(255,255,255,0.4);
+	}
+	.input span.erro.active{
+		border:1px solid red;
+		padding: 0.4em;
+	}
+	.acao{
+		margin: 20px; 
+		width: 100%;
+		float: left;
+		display: flex;
+		justify-content: space-between;
+	}
+	#fechar{
+		margin-right: 40px;
+	}
