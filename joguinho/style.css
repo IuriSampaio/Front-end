@@ -1,0 +1,9 @@
+#telaDoJogo{
+    border: 0.5px solid black;
+    width: 400px;
+    height: 400px;
+    /* Propriedades para não deixar os pixels borrados */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    image-rendering: -moz-crisp-edges;
+}

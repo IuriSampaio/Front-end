@@ -8,6 +8,10 @@ body{
 	border-radius: 5px;
 	box-shadow:  0px 0px 40px black; 
 }
+a:hover{
+	cursor: pointer;
+	color: black;
+}
 .titulo{
 	background-color: rgb(190,0,300);
 	height: 45px;
@@ -52,15 +56,17 @@ body{
 	opacity: 0;
 }
 .modal{
-	width: 50vw;
+	width: 70vw;
 	margin: 10vh auto;
 	background-color: white;
 	padding: 10px;
 	border-radius: 10px;
-	height: 80vh;
+	height: 70% ;
+	padding-bottom: 20px;
 }
 .conteiner-modal.exibirModal{
 	opacity: 1;
+	transition: 1.5s;
 	z-index:999; 
 }
 /*input{
@@ -69,6 +75,32 @@ body{
 	width: 47%;
 	margin: 3% 0.5% 0.5%;
 }*/
+/* .form{
+	display: grid;
+
+	grid-template-areas:
+	"nome nome nome nome"
+	"email email email email"
+	"endereco cidade bairro bairro"
+	"numero cep estado celular";
+
+	gap: 10px;
+	padding: 2vw;
+}
+#nome{grid-area: nome;}
+#email{grid-area: email;}
+#celular{grid-area: celular;}
+#endereco{grid-area: endereco;}
+#numero{grid-area: numero;}
+#bairro{grid-area: bairro;}
+#cidade{grid-area: cidade;}
+#estado{grid-area: estado;}
+#cep{grid-area: cep;} */
+
+.form > div.input{
+	width:45%
+}
+
 div.input{
 		margin-bottom: 24px;
 		margin: 2% 2%; 
@@ -76,31 +108,34 @@ div.input{
 		float: left;
 		position: relative;
 	}
-	input{
-		-moz-appearance:none;
-		-webkit-appearance:none;
-		appearance:none;
-		width: 100%;
-		padding: 10px 0;
-		border: none;
-		border-bottom: 1.5px solid rgb(190,0,300) ;
-		background-color:transparent;
-		outline: none;
-		color:rgb(200,0,100);
-		font-size: 1em;
-	}
-	input ~ label{
-		position: absolute;
-		top: 16px;
-		left: 0;
-		color: rgb(0,0,0);
-		transition: .4s;
-	}
-	input:focus ~ label, input:valid ~ label{
-		transform: translateY(-24px);
-		font-size: 0.8em;
-		letter-spacing: 0.1em;
-	}
+input{
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	appearance:none;
+	width: 100%;
+	padding: 10px 0;
+	border: none;
+	border-bottom: 1.5px solid rgb(190,0,300) ;
+	background-color:transparent;
+	outline: none;
+	color:rgb(200,0,100);
+	font-size: 1em;
+}
+input ~ label{
+	position: absolute;
+	top: 16px;
+	left: 0;
+	font-size: larger;
+	font-family: 'Courier New', Courier, monospace;
+	color: rgb(0,0,0);
+	transition: .4s;
+}
+input:focus ~ label, input:valid ~ label{
+	transform: translateY(-24px);
+	font-size: 0.8em;	
+	letter-spacing: 0.1em;
+	font-weight: bolder;
+}
 	.input span.erro{
 		display: flex;
 		padding: 0;
@@ -110,13 +145,44 @@ div.input{
 		border:1px solid red;
 		padding: 0.4em;
 	}
-	.acao{
-		margin: 20px; 
-		width: 100%;
-		float: left;
-		display: flex;
-		justify-content: space-between;
-	}
-	#fechar{
-		margin-right: 40px;
-	}
+.acao{
+	margin: 20px; 
+	width: 100%;
+	float: left;
+	display: flex;
+	justify-content: space-between;
+}
+#fechar, #salvar{
+	margin-right: 40px;
+	width: 30%;
+	box-shadow:2px 2px 8px black ;
+	height: 45px;
+	font-size: x-large;
+}
+table{
+	width: 100%;
+	background-color: purple;
+	margin-top: 40px;
+	border-top-left-radius:10px ;
+	border-top-right-radius:10px ;
+}
+th{
+	border: solid 1px transparent;
+	text-align: center;
+}
+tr{
+	width: 100%;
+}
+td{
+	background-color: #00000077;
+	border: solid 1px white;
+	color: white;
+	border-radius: 5px;
+	font: bolder calc(2px+1vw) sans-serif;
+	text-align: center;
+}
+.registros tr:hover{
+	font: bolder calc(5px+3vw) sans-serif;
+	background-color: rgb(255, 13, 255);
+	transition: 1s;
+}

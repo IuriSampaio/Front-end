@@ -1,13 +1,137 @@
+"use strict"
+
+// IMPORTANDO AS FUNÇÕES validaTudo E validaEmail DO ARQUIVO masks.js
+import { validaTudo, validaEmail } from "./masks.js"
+
 const btn = document.getElementById('novo')
 const btnfechar = document.getElementById('fechar')
-const acionaModal =()=>{
-	const contMod =document.querySelector('.conteiner-modal')
-	contMod.classList.add('exibirModal')
+const btnsalvar = document.getElementById('salvar')
+
+const acionaModal = ( ) => document.querySelector('.conteiner-modal').classList.add('exibirModal')
+
+// CHAMANDO AS FUNÇÕES QUE FORAM 
+// IMPORTADAS PARA MARCARAR O FORM E VALIDAR O EMAIL
+validaTudo(document.getElementById('form'))
+validaEmail(document.getElementById('email'))
+
+const fecharModal = ( ) => document.querySelector('.conteiner-modal').classList.remove('exibirModal')
+
+
+function createAluno( aluno ) {
+    const url = 'http://localhost/iuri/cadastro/apiphp/alunos/';
+    const options = {
+      method: 'POST',
+      body: JSON.stringify( aluno )
+    };
+	console.log(options.body)
+    fetch(url, options )
 }
-const fecharModal =()=>{
-	const contMod =document.querySelector('.conteiner-modal')
-	contMod.classList.remove('exibirModal')
+
+const salvarAluno = ( ) => {
+		
+	const aluno = {
+		"nome" : document.getElementById('nome').value,
+		"email" : document.getElementById('email').value,
+		"celular": document.getElementById('celular').value,
+		"endereco": document.getElementById('endereco').value,
+		"numero" : document.getElementById('numero').value,
+		"bairo" : document.getElementById('bairro').value,
+		"cidade": document.getElementById('cidade').value,
+		"estado": document.getElementById('estado').value,
+		"cep" : document.getElementById('cep').value
+	}
+		alert('salvou '+aluno.nome )
+		window.location.reload()
+		createAluno(aluno)
+		fecharModal()
+
+}
+
+const getAlunos = (url) => fetch(url).then(res => res.json()) 
+
+
+const mostraAlunos = async() =>{
+	const url = 'http://localhost/iuri/cadastro/apiphp/alunos/';
+    const alunos = await getAlunos(url);
+    preencheTabela(alunos.data)
+}
+
+function deleteAluno( alunoId ) {
+    const url = `http://localhost/iuri/cadastro/apiphp/alunos/${alunoId}`;
+    const options = {
+      method: 'DELETE'
+    };
+  
+    fetch(url, options )
+}
+  
+const preencheTabela = ( dados ) => {
+	const registros = document.getElementById('registros')
+	dados.forEach(e => {
+		const tr = document.createElement('tr')
+			tr.innerHTML = `
+			<td>${e.id}</td>
+			<td>${e.nome}</td>
+			<td>${e.email}</td>
+			<td>${e.celular}</td>
+			<td>${e.cidade}</td>
+			<td> <a id='deleta'>DELETAR</a> </td>`
+		registros.appendChild(tr)
+		document.getElementById('deleta').addEventListener('click',()=>{
+			alert("excluindo "+e.nome)
+			deleteAluno(e.id)
+			window.location.reload()
+		})	
+	});
 }
 
 btn.addEventListener('click', acionaModal )
 btnfechar.addEventListener('click',fecharModal)
+btnsalvar.addEventListener('click',salvarAluno)
+mostraAlunos()
+
+////////////////////FORMAS DE MASCARAR OS INPUTS ----> eles foram mascarados no arquivo masks.js
+// //traz um array com todos os inputs
+// const arrayDeInput = document.querySelectorAll('input')
+
+// const maskText = ( $e ) => {
+// 	const nome = document.getElementById('nome')
+// 	let value = nome.value
+// 	//expreção regular que valida apenas numeros 
+// 	value = value.replace(/\d/g,'')
+// 	nome.value = value
+// }
+// nome.addEventListener('keyup',maskText)
+
+//exemplo forEach:
+//[1,2,3,4].forEach(variavel => console.log(variavel+2))
+// arrayDeInput.forEach( cadaInputDoArray => { 
+// 	// pegando a proprieade do data-js de cada elemento
+// 	const tipoDeValidacao = cadaInputDoArray.dataset.js
+
+// 	cadaInputDoArray.addEventListener('input', e =>{
+// 		// e --> elemento que foi digitado com todas as propriedades 
+// 		// target --> é a propriedade que diz o input aonde foi digitado
+// 		// value --> oque foi inscrito no input que foi digitado
+
+// 		let valorDoInputDigitado = e.target.value
+// 		e.target.value = masks[tipoValidacao](valorDoInputDigitado) 
+
+// 	})
+// })
+
+////////////////// ISSO AQUI FOI PRO ARQUIVO masks.js
+// const masks = {
+//     texto: value => value.replace(/[^a-zA-Z À-ÿ]/, ''),
+ 
+//     celular: value => value.replace(/[a-zA-Z À-ÿ]/, '')
+ 
+// }
+
+// const validar = e => {
+// 	const $input = e.target;
+//     const typeMask = $input.dataset.type;
+//     $input.value = masks[typeMask]($input.value);
+// }
+
+// document.getElementById('form').addEventListener('input',validar)

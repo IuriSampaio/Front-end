@@ -3,7 +3,8 @@
       <meta charset="UTF-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="./style.css">
-	  <script defer src="./cadastro.js"></script> 
+      <!-- type="module" == SERVE PARA PODER IMPORTAR ARQUIVOS NO JS -->
+	  <script defer src="./cadastro.js" type="module"></script> 
    </head>
    <body>
       <div class=cadastro-form>
@@ -40,49 +41,49 @@
             <div class="titulo">
                Cadastro novo aluno
             </div>
-            <form class="form">
+            <form class="form" id="form">
                <div class="input">
-                  <input required type="text">
+                  <input required id="nome" data-type="text" type="text">
                   <label>Nome</label>
                   <span class="erro"></span>
                </div>
                <div class="input">
-                  <input required type="text">
+                  <input required type="email" id="email">
                   <label>E-mail</label>
                   <span class="erro"></span>
                </div>
                <div class="input">
-                  <input required type="text">
+                  <input required type="text" data-type="celular" id="celular">
                   <label>Celular</label>
                   <span class="erro"></span>
                </div>
                <div class="input">
-                  <input required type="text">
+                  <input required type="text" data-type="text" id="endereco">
                   <label>Endereço</label>
                   <span class="erro"></span>
                </div>
                 <div class="input">
-                  <input required type="text">
+                  <input required type="text" data-type="numero" id="numero">
                   <label>Numero</label>
                   <span class="erro"></span>
                </div>
                <div class="input">
-                  <input required type="text">
+                  <input required type="text" data-type="text" id="bairro">
                   <label>Bairro</label>
                   <span class="erro"></span>
                </div>              
                <div class="input">
-                  <input required type="text">
+                  <input required type="text" id="cidade" data-type="text">
                   <label>Cidade</label>
                   <span class="erro"></span>
                </div>                           
                 <div class="input">
-                  <input required type="text">
+                  <input required type="text" data-type="text" id="estado"> 
                   <label>Estado</label>
                   <span class="erro"></span>
                </div>
                <div class="input">
-                  <input required type="text">
+                  <input required type="text" id="cep" data-type="cep">
                   <label>CEP</label>
                   <span class="erro"></span>
                </div>
