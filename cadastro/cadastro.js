@@ -17,7 +17,7 @@ validaEmail(document.getElementById('email'))
 const fecharModal = ( ) => document.querySelector('.conteiner-modal').classList.remove('exibirModal')
 
 
-function createAluno( aluno ) {
+const createAluno = ( aluno ) => {
     const url = 'http://localhost/iuri/cadastro/apiphp/alunos/';
     const options = {
       method: 'POST',
@@ -28,7 +28,6 @@ function createAluno( aluno ) {
 }
 
 const salvarAluno = ( ) => {
-		
 	const aluno = {
 		"nome" : document.getElementById('nome').value,
 		"email" : document.getElementById('email').value,
@@ -44,17 +43,21 @@ const salvarAluno = ( ) => {
 		window.location.reload()
 		createAluno(aluno)
 		fecharModal()
-
 }
 
-const getAlunos = (url) => fetch(url).then(res => res.json()) 
-
-
+const getAlunos =(url) => fetch(url).then(res => res.json()) 
+// fetch == buscar/trazer ou seja : 	IR BUSCAR NA URL E ENTÃO PEGAR A RESPOSTA ENCONTRADA E TRANFORMAR EM UM JSON 
 const mostraAlunos = async() =>{
 	const url = 'http://localhost/iuri/cadastro/apiphp/alunos/';
-    const alunos = await getAlunos(url);
-    preencheTabela(alunos.data)
+//ESPERAR A FUNÇÃO IR BUSCAR NA URL E ENTÃO PEGAR A RESPOSTA ENCONTRADA E TRANFORMAR EM UM JSON 
+    let alunos = await getAlunos(url);
+//PEGANDO O DATA E COLOCANDO NA VARIALE ALUNOS
+    alunos = alunos.data
+//PARA CADA ALUNO QUE VEM DO DATA DE ALUNOS DA UM CONSOLE.LOG DELE 
+   // alunos.map(aluno => (aluno))
+    preencheTabela(alunos)
 }
+
 
 function deleteAluno( alunoId ) {
     const url = `http://localhost/iuri/cadastro/apiphp/alunos/${alunoId}`;
@@ -75,7 +78,7 @@ const preencheTabela = ( dados ) => {
 			<td>${e.email}</td>
 			<td>${e.celular}</td>
 			<td>${e.cidade}</td>
-			<td> <a id='deleta'>DELETAR</a> </td>`
+			<td> <button id='deleta'>DELETAR</button> <button id='editar'>EDITAR</button> </td>`
 		registros.appendChild(tr)
 		document.getElementById('deleta').addEventListener('click',()=>{
 			alert("excluindo "+e.nome)
